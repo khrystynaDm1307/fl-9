@@ -1,0 +1,22 @@
+<div mat-dialog-content>
+    <p>Topic</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="lesson.topic">
+    </mat-form-field>
+</div>
+<div mat-dialog-content>
+    <p>Date</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="lesson.date">
+    </mat-form-field>
+</div>
+<div mat-dialog-content>
+    <p>Lecturer</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="lesson.lecturer">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Close</button>
+    <button mat-button [mat-dialog-close]="lesson" cdkFocusInitial>Add</button>
+</div>

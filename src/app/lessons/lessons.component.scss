@@ -1,0 +1,16 @@
+ .container{
+     margin: 30px auto;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+ }
+ button{
+     background-color: green;
+     color: white;
+}
+table,h1{
+    margin-top: 50px;
+}
+table{
+    width: 80%;
+}

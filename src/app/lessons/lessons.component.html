@@ -1,0 +1,47 @@
+<div class="container">
+    <button mat-raised-button color="primary" (click)="openDialog()">Add new lesson</button>
+
+    <h1 *ngIf="!lessonsArray.length">You have nothing</h1>
+    <table *ngIf="lessonsArray.length">
+        <thead class="table">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Date</th>
+                <th scope="col">Lecturer</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lesson of lessonsArray;let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td *ngIf="!lesson.editStatus">{{lesson.topic}}</td>
+                <td *ngIf="lesson.editStatus">
+                    <mat-form-field>
+                        <input matInput [(ngModel)]="lesson.topic">
+                    </mat-form-field>
+                </td>
+                <td *ngIf="!lesson.editStatus">{{lesson.date}}</td>
+                <td *ngIf="lesson.editStatus">
+                    <mat-form-field>
+                        <input matInput [(ngModel)]="lesson.date">
+                    </mat-form-field>
+                </td>
+                <td *ngIf="!lesson.editStatus">{{lesson.lecturer}}</td>
+                <td *ngIf="lesson.editStatus">
+                    <mat-form-field>
+                        <input matInput [(ngModel)]="lesson.lecturer">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <button mat-raised-button (click)="edit(i)" *ngIf="!lesson.editStatus">Edit</button>
+                    <button mat-raised-button (click)="saveEdit(i)" *ngIf="lesson.editStatus">Save</button>
+                </td>
+                <td>
+                    <button mat-raised-button color="warn" (click)="delete(i)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
