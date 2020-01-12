@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogData } from '../lessons/lessons.component';
-import { ILesson } from 'src/app/classes/lesson.class';
-import { LocalStorageService } from '../services/local-storage.service';
+import { LocalStorageService } from '../shared/services/local-storage.service';
+import { ILesson } from '../shared/interfaces/lesson.model';
+
 
 @Component({
   selector: 'app-modal',
@@ -22,7 +23,7 @@ export class ModalComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
-  onNoClick(): void {
+  closeModal(): void {
     this.dialogRef.close();
   }
 

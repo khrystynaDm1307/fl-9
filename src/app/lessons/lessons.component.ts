@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
-import { ILesson } from 'src/app/classes/lesson.class';
-import { LocalStorageService } from '../services/local-storage.service';
+import { LocalStorageService } from '../shared/services/local-storage.service';
+import { ILesson } from '../shared/interfaces/lesson.model';
+;
+
 export interface DialogData {
   topic: string;
   date: string;
